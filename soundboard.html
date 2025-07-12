@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <title>RankedIt - Soundboard</title>
+    <link rel="shortcut icon" href="Assets/RankedIt.png" type="image/x-icon" />
+    <meta charset="utf-8" />
+    <link href="main.css" type="text/css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="navbar-left">
+        <div class="dropdown">
+          <a href="#" class="dropbtn">Blog</a>
+          <div class="dropdown-content">
+            <a href="index.html">Startseite</a>
+            <hr>
+            <a href="maus.html">Beste Maus für Gaming</a>
+            <hr>
+            <a href="tastatur.html">Gamer-Tastaturen unter 50€</a>
+            <hr>
+            <a href="jobs.html">Top 5 Berufe für Teenager</a>
+            <hr>
+            <a href="soundboard.html">Soundboard</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="index.html" class="navbar-logo">
+        <img src="Assets/RankedIt.png" alt="RankedIt Logo" />
+      </a>
+
+      <div class="navbar-right">
+        <button id="darkModeToggle" aria-label="Dark Mode Toggle" title="Dark Mode umschalten">
+          <svg class="icon sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <svg class="icon moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <main class="soundboard-container">
+      <h1 class="soundboard-title">🎵 Dein Soundboard</h1>
+      <p class="soundboard-description">Klicke auf einen Sound, um ihn abzuspielen oder zu stoppen.</p>
+
+      <div class="sound-grid">
+        <button class="sound-button" onclick="playSound('sound1')">
+          <span class="sound-name">AMOGUS</span>
+        </button>
+          
+        <button class="sound-button" onclick="playSound('sound2')">
+          <span class="sound-name">AHHH HAAA</span>
+        </button>
+          
+        <button class="sound-button" onclick="playSound('sound3')">
+          <span class="sound-name">Bruh</span>
+        </button>
+          
+        <button class="sound-button" onclick="playSound('sound4')">
+          <span class="sound-name">Cursed AmongUs</span>
+        </button>
+          
+        <button class="sound-button" onclick="playSound('sound5')">
+          <span class="sound-name">Plankton Moan</span>
+        </button>
+          
+        <button class="sound-button" onclick="playSound('sound6')">
+          <span class="sound-name">GET OUT!!</span>
+        </button>
+          
+        <button class="sound-button" onclick="playSound('sound7')">
+          <span class="sound-name">Rawr</span>
+        </button>
+          
+        <button class="sound-button" onclick="playSound('sound8')">
+          <span class="sound-name">Vine Boom</span>
+        </button>
+          
+        <button class="sound-button" onclick="playSound('sound9')">
+          <span class="sound-name">wait wait wait</span>
+        </button>
+          
+        <button class="sound-button" onclick="playSound('sound10')">
+          <span class="sound-name">what the hell</span>
+        </button>
+          
+        </div>
+
+      <audio id="sound1" src="Assets/sounds/AMOGUS.mp3"></audio>
+      <audio id="sound2" src="Assets/sounds/AUGGHH%20%20AHHHHH%20sound%20effect.mp3"></audio>
+      <audio id="sound3" src="Assets/sounds/Bruh%20sound%20effect.mp3"></audio>
+      <audio id="sound4" src="Assets/sounds/Cursed%20Among%20Us%20Sound%20(High%20Quality).mp3"></audio>
+      <audio id="sound5" src="Assets/sounds/Cursed%20Plankton%20moaning%20meme!!!.mp3"></audio>
+      <audio id="sound6" src="Assets/sounds/Get%20out%20sound%20effect!!.mp3"></audio>
+      <audio id="sound7" src="Assets/sounds/Rawr%20Sound%20Effect.mp3"></audio>
+      <audio id="sound8" src="Assets/sounds/Vine%20Boom%20sound%20effect%20meme.mp3"></audio>
+      <audio id="sound9" src="Assets/sounds/wait%20wait%20wait%20what%20the%20hell.mp3"></audio>
+      <audio id="sound10" src="Assets/sounds/What%20the%20hell%20Oh%20my%20God%20no%20Way%20Sound%20Effect.mp3"></audio>
+      </main>
+
+    <footer>
+      <div class="dankeschoen">
+        <span>© Timon</span>
+      </div>
+    </footer>
+
+    <script src="darkmode.js"></script>
+    <script src="soundboard.js"></script>
+    
+  </body>
+</html>
