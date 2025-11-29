@@ -1,0 +1,160 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color-scheme: dark;
+}
+* {
+  margin: 0;
+  padding: 0;
+  transition: background-image 300ms;
+}
+.dropdown li.link {
+  border-radius: 4px;
+  padding: 0 128px 0 8px;
+  transition: background-color 500ms, padding 500ms;
+}
+
+.dropdown li.link:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0 0 0 16px;
+}
+
+.dropdown {
+  position: absolute;
+  top: 70px;
+  background-color: white;
+  left: 60px;
+  z-index: 9999969;
+  padding: 24px;
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+}
+.dropdown.active {
+  opacity: 1;
+  visibility: visible;
+}
+.dropdown ul {
+  list-style-type: none;
+  font-size: 48px;
+  font-family: "Roboto Mono";
+  color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+.dropdown a {
+  text-decoration: none;
+  color: black;
+  font-weight: 300;
+}
+.navbar {
+  position: relative;
+  width: calc(100% - 120px);
+  height: 80px;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+  box-shadow: 2px 0 8px black;
+  z-index: 99999;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.nav-left {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navbar a {
+  font-size: 20px;
+  font-family: sans-serif;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.navbar a:hover, .navbar div:hover, 
+.navbar button:hover {
+  background-color: #303030;
+}
+
+.navbar-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%; /* <<< Vertikal in der Mitte */
+  transform: translate(-50%, -50%); /* <<< zentriert in beide Richtungen */
+  height: 48px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.navbar-logo img {
+  height: 100%;
+  pointer-events: auto;
+}
+.navbar div {
+  height: 48px;
+  width: 48px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition-duration: 250ms;
+}
+.navbar div img {
+  height: 100%;
+}
+.big {
+  font-size: 400px;
+}
+
+.navbar a,
+.navbar button {
+  transition: all 250ms ease;
+  border-radius: 4px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: 500;
+}
+footer {
+  width: calc(100% - 128px);
+  height: 150px;
+  background-color: black;
+  z-index: 99999999;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  padding: 0 64px;
+  font-family: sans-serif;
+}
+.social-media {
+  display: flex;
+  gap: 20px;
+}
+.social-media a {
+  height: 36px;
+  width: 36px;
+}
+.social-media a img {
+  height: 36px;
+  width: 36px;
+}
+.social-media a img.invert {
+  filter: invert(100%);
+}

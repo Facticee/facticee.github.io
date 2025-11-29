@@ -1,0 +1,191 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  z-index: -1;
+ 
+}
+.main:not(video) {background-image: url(Assets/backgrounds/background7.png);}
+.main:has(.avatar:hover) { background-image: url(Assets/backgrounds/filme/avatarbg.jpg);}
+.main:has(.avengers:hover) { background-image: url(Assets/backgrounds/filme/avengersbg.jpeg);}
+.main:has(.blinding:hover) { background-image: url(Assets/backgrounds/songs/blindinglightsbg.webp);}
+.main:has(.shapeofu:hover) { background-image: url(Assets/backgrounds/songs/shapeofyoubg.jpg);}
+.main:has(.gameofthrones:hover) { background-image: url(Assets/backgrounds/serien/gameofhtronesbg.webp);}
+.main:has(.strangerthings:hover) { background-image: url(Assets/backgrounds/serien/strangerbackground.jpg);}
+.main:has(.breakingbad:hover) { background-image: url(Assets/backgrounds/serien/breakingbackground.jpg);}
+.main:has(.minecraft:hover) { background-image: url(Assets/backgrounds/spiele/minecraftbg.avif);}
+.main:has(.gtav:hover) { background-image: url(Assets/backgrounds/spiele/gtavbg.jpg);}
+.main:has(.tetris:hover) { background-image: url(Assets/backgrounds/spiele/tetrisbg.jpg);}
+.main video,
+.main > img {
+  width: 100%;
+  position: fixed;
+  filter: brightness(40%);
+  z-index: -1;
+}
+.main:has(video) {
+  background-image: none;
+}
+.main > div.tiermain {
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px) brightness(100%);
+}
+.main > div.index-main {
+  height: 384px;
+  z-index: 10;
+  position: relative;
+  padding: 16px 128px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  font-weight: 600;
+  box-shadow: 0 0 24px white;
+  overflow: hidden;
+}
+.main a {
+  color: white;
+  text-decoration: none;
+}
+.main h1 {
+  color: white;
+  font-size: 192px;
+  text-align: center;
+  font-family: sans-serif;
+  text-shadow: 0 0 24px black;
+}
+.main div.tier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin: 16px 0 32px 0;
+}
+.main div.tier > div {
+  width: min-content;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px) brightness(200%);
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: white;
+  font-family: sans-serif;
+  transition: transform 500ms;
+  overflow: hidden;
+}
+
+.main div.tier > div:hover {
+  transform: scale(1.05);
+}
+
+/* BOX GRÖ?E HIER */
+/* BOX GRÖ?E HIER */
+/* BOX GRÖ?E HIER */
+.main div.tier > div .img {
+  height: 200px;
+  width: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #222;
+  box-shadow: 0 0 16px #222;
+}
+.main div.tier > div .img img {
+  height: 100%;
+  width: 100%;
+}
+.main div.tier .heading {
+  align-self: flex-start;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+}
+.tier .heading h2 {
+  font-size: 40px;
+}
+.tier .heading a {
+  color: #4590ff;
+  text-shadow: 2px 2px 2px black;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* New Tab Icon */
+.tier .heading a::after {
+  content: "";
+  height: 16px;
+  width: 16px;
+  display: flex;
+  background-image: url(Assets/new-tab-icon.svg);
+}
+.choices {
+  color: white;
+  font-family: sans-serif;
+  font-size: 36px;
+  text-shadow: 4px 4px 16px black;
+}
+.main div.tier .desc {
+  height: 192px;
+  width: 256px;
+  display: block;
+  overflow-y: auto;
+}
+.heading img {
+  height: 100px;
+  width: 100px;
+  margin-top: 12px;
+}
+.main > .index-main > div {
+  font-size: 280px;
+  color: white;
+  text-shadow: 0 0 24px black;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(64px);
+  gap: 64px;
+  animation: slideY 10s ease-in-out infinite;
+}
+@keyframes slideY {
+  0% {
+    transform: translateY(64px);
+  }
+  15% {
+    transform: translateY(64px);
+  }
+  20% {
+    transform: translateY(-320px);
+  }
+  35% {
+    transform: translateY(-320px);
+  }
+  40% {
+    transform: translateY(-704px);
+  }
+  55% {
+    transform: translateY(-704px);
+  }
+  60% {
+    transform: translateY(-1088px);
+  }
+  75% {
+    transform: translateY(-1088px);
+  }
+  75.01% {
+    transform: translateY(64px);
+  }
+  100% {
+    transform: translateY(64px);
+  }
+}

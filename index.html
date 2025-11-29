@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+  <head>
+    <title>RankedIt</title>
+    <link rel="shortcut icon" href="Assets/RankedIt.png" type="image/x-icon">
+    <meta charset="utf-8" />
+    <link href="design.css" type="text/css" rel="stylesheet" />
+    <link href="main.css" type="text/css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="dropdown" id="dropdown">
+      <ul>
+        <li class="link"><a href="filme.html">Filme</a></li>
+        <li><hr></li>
+        <li class="link"><a href="serien.html">Serien</a></li>
+        <li><hr></li>
+        <li class="link"><a href="songs.html">Songs</a></li>
+        <li><hr></li>
+        <li class="link"><a href="spiele.html">Spiele</a></li>
+      </ul>
+    </div>
+    <nav class="navbar">
+      <ul>
+        <li><button onclick="document.getElementById('dropdown').classList.toggle('active')">Kategorien</button></li>
+      </ul>
+      <a href="index.html" class="navbar-logo">
+        <img src="Assets/RankedIt.png" />
+      </a>
+      <div>
+        <img src="Assets/pfp.png" />
+      </div>
+    </nav>
+    <div class="main">
+      <video autoplay loop muted>
+        <source src="Assets/loopvid.mp4" type="video/mp4" />
+        <!-- falls man internet exploer nutzt -->
+        Dein browser kann leider keine Videos abspielen, versuche es mit Google Chrome :D
+      </video>
+      <div class="index-main">
+        <div>
+          <br><br><br>
+          <a href="filme.html">Filme</a>
+          <a href="spiele.html">Spiele</a>
+          <a href="songs.html">Songs</a>
+          <a href="serien.html">Serien</a>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="dankeschoen">
+        <span>© 2025 Eduardo P.B. &amp; Timon P.</span>
+      </div>
+      <div class="social-media">
+        <a href="https://imgflip.com/embed/4zkfhb" target="_blank"><img class="invert" src="Assets/social-media/tiktok.png" /></a>
+        <a href="https://imgflip.com/embed/4zkfhb" target="_blank"><img src="Assets/social-media/instagram.png" /></a>
+        <a href="https://imgflip.com/embed/4zkfhb" target="_blank"><img class="invert" src="Assets/social-media/youtube.png" /></a>
+        <a href="https://imgflip.com/embed/4zkfhb" target="_blank"><img class="invert" src="Assets/social-media/twitter.png" /></a>
+      </div>
+    </footer>
+  </body>
+</html>
