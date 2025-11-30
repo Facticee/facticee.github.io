@@ -1,0 +1,400 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  z-index: -1;
+  background-image: url(Assets/backgrounds/Edel.png);
+  
+}
+
+body {
+  /* margin: 0; & padding: 0; waren redundant (siehe *) */
+  background-color: black;
+  color-scheme: dark;
+}
+* {
+  margin: 0;
+  padding: 0;
+  transition: background-image 300ms;
+}
+
+/* --- Dropdown (von main.css) --- */
+.dropdown li.link {
+  border-radius: 4px;
+  padding: 0 128px 0 8px;
+  transition: background-color 500ms, padding 500ms;
+}
+.dropdown li.link:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0 0 0 16px;
+}
+.dropdown {
+  position: absolute;
+  top: 70px;
+  background-color: white;
+  left: 60px;
+  z-index: 1000;
+  padding: 24px;
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+}
+.dropdown.active {
+  opacity: 1;
+  visibility: visible;
+}
+.dropdown ul {
+  list-style-type: none;
+  font-size: 48px;
+  font-family: "Roboto Mono";
+  color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.dropdown a {
+  text-decoration: none;
+  color: black;
+  font-weight: 300;
+}
+
+/* --- Navbar (von main.css) --- */
+.navbar {
+  position: relative;
+  width: calc(100% - 120px);
+  height: 80px;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+  box-shadow: 2px 0 8px black;
+  z-index: 999;
+  justify-content: space-between;
+  user-select: none;
+}
+/* .nav-left war ungenutzt und wurde entfernt */
+.navbar a {
+  font-size: 20px;
+  font-family: sans-serif;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px;
+}
+.navbar a:hover,
+.navbar div:hover,
+.navbar button:hover {
+  background-color: #303030;
+}
+.navbar-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 48px; /* <-- Hält die "perfekte" Größe bei */
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+.navbar-logo img {
+  height: 100%;
+  pointer-events: auto;
+}
+.navbar div {
+  height: 48px; /* <-- Hält die "perfekte" Größe bei */
+  width: 48px;  /* <-- Hält die "perfekte" Größe bei */
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition-duration: 250ms;
+}
+.navbar div img {
+  height: 100%;
+}
+/* .big war ungenutzt und wurde entfernt */
+.navbar a,
+.navbar button {
+  transition: all 250ms ease;
+  border-radius: 4px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* --- Footer (von main.css) --- */
+footer {
+  width: calc(100% - 128px);
+  height: 150px;
+  background-color: black;
+  z-index: 1000;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  padding: 0 64px;
+  font-family: sans-serif;
+  
+  position: relative;
+}
+.social-media {
+  display: flex;
+  gap: 20px;
+}
+.social-media a {
+  height: 36px;
+  width: 36px;
+}
+.social-media a img {
+  height: 36px;
+  width: 36px;
+}
+.social-media a img.invert {
+  filter: invert(100%);
+}
+
+
+
+
+
+
+
+
+.main::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.main:has(.avatar:hover)::before {
+  background-image: url(Assets/backgrounds/filme/avatarbg.jpg);
+  opacity: 1;
+}
+.main:has(.titanic:hover)::before {
+  background-image: url(Assets/backgrounds/filme/titanic.jpg);
+  opacity: 1;
+}
+.main:has(.avengers:hover)::before {
+  background-image: url(Assets/backgrounds/filme/avengersbg.jpeg);
+  opacity: 1;
+}
+.main:has(.blinding:hover)::before {
+  background-image: url(Assets/backgrounds/songs/blindinglightsbg.webp);
+  opacity: 1;
+}
+.main:has(.shapeofu:hover)::before {
+  background-image: url(Assets/backgrounds/songs/shapeofyoubg.jpg);
+  opacity: 1;
+}
+.main:has(.gameofthrones:hover)::before {
+  background-image: url(Assets/backgrounds/serien/gameofhtronesbg.webp);
+  opacity: 1;
+}
+.main:has(.strangerthings:hover)::before {
+  background-image: url(Assets/backgrounds/serien/strangerbackground.jpg);
+  opacity: 1;
+}
+.main:has(.breakingbad:hover)::before {
+  background-image: url(Assets/backgrounds/serien/breakingbackground.jpg);
+  opacity: 1;
+}
+.main:has(.minecraft:hover)::before {
+  background-image: url(Assets/backgrounds/spiele/minecraftbg.avif);
+  opacity: 1;
+}
+.main:has(.gtav:hover)::before {
+  background-image: url(Assets/backgrounds/spiele/gtavbg.jpg);
+  opacity: 1;
+}
+.main:has(.tetris:hover)::before {
+  background-image: url(Assets/backgrounds/spiele/tetrisbg.jpg);
+  opacity: 1;
+}
+.main video,
+.main > img {
+  width: 100%;
+  position: fixed;
+  filter: brightness(40%);
+  z-index: -1;
+}
+.main:has(video) {
+  background-image: none;
+}
+.main > div.tiermain {
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(4px) brightness(100%); /* BLURRRRRRRRRRRRRRRRR */
+}
+.main > div.index-main {
+  height: 384px;
+  z-index: 10;
+  position: relative;
+  padding: 16px 128px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  font-weight: 600;
+  box-shadow: 0 0 24px white;
+  overflow: hidden;
+}
+.main a {
+  color: white;
+  text-decoration: none;
+}
+.main h1 {
+  color: white;
+  font-size: 192px;
+  text-align: center;
+  font-family: sans-serif;
+  text-shadow: 0 0 24px black;
+}
+
+.big {
+  color: white;
+  font-size: 158px;
+  text-align: center;
+  font-family: sans-serif;
+  text-shadow: 0 0 24px black;
+  font-weight: bold;
+}
+
+.main div.tier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin: 16px 0 32px 0;
+}
+.main div.tier > div {
+  width: min-content;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px) brightness(200%);                                         
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: white;
+  font-family: sans-serif;
+  transition: transform 500ms;
+  overflow: hidden;
+}
+.main div.tier > div:hover {
+  transform: scale(1.05);
+}
+.main div.tier > div .img {
+  height: 200px;
+  width: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #222;
+  box-shadow: 0 0 16px #222;
+}
+.main div.tier > div .img img {
+  height: 100%;
+  width: 100%;
+}
+.main div.tier .heading {
+  align-self: flex-start;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+}
+.tier .heading h2 {
+  font-size: 40px;
+}
+.tier .heading a {
+  color: #4590ff;
+  text-shadow: 2px 2px 2px black;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tier .heading a::after {
+  content: "";
+  height: 16px;
+  width: 16px;
+  display: flex;
+  background-image: url(Assets/new-tab-icon.svg);
+}
+.choices {
+  color: white;
+  font-family: sans-serif;
+  font-size: 36px;
+  text-shadow: 4px 4px 16px black;
+}
+.main div.tier .desc {
+  height: 192px;
+  width: 256px;
+  display: block;
+  overflow-y: auto;
+}
+.heading img {
+  height: 100px;
+  width: 100px;
+  margin-top: 12px;
+}
+.main > .index-main > div {
+  font-size: 280px;
+  color: white;
+  text-shadow: 0 0 24px black;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(64px);
+  gap: 64px;
+  animation: slideY 10s ease-in-out infinite;
+}
+
+
+@keyframes slideY {
+
+  0% { transform: translateY(320px); } 
+  
+  15% { transform: translateY(320px); }
+
+  25% { transform: translateY(-64px); }
+  
+  40% { transform: translateY(-64px); }
+
+  50% { transform: translateY(-448px); }
+
+  65% { transform: translateY(-448px); }
+
+  75% { transform: translateY(-832px); }
+
+  90% { transform: translateY(-832px); } 
+
+  100% { position: static(320px)  } 
+}
