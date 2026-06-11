@@ -54,7 +54,7 @@ h1 {
   border-radius: 6px;
 }
 
-/* GRID */
+/* ka */
 
 .grid {
   display: grid;
@@ -62,7 +62,7 @@ h1 {
   gap: 20px;
 }
 
-/* CARD */
+/* KARTENBOX */
 
 .card {
   background: var(--card);
@@ -72,9 +72,13 @@ h1 {
   transition: 0.2s ease;
 }
 
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--green);
+  box-shadow: 0 6px 18px rgba(0, 255, 157, 0.08);
+}
 
-
-/* CARD HEADER */
+/* HEADER */
 
 .card-header {
   display: flex;
@@ -86,7 +90,7 @@ h1 {
   font-size: 1rem;
 }
 
-/* STATUS */
+/* GRÜNERPUNKT */
 
 .status-dot {
   width: 8px;
@@ -105,7 +109,7 @@ h1 {
   line-height: 1.4;
 }
 
-/* BUTTONS */
+
 
 .card-links {
   display: flex;
@@ -122,3 +126,8 @@ h1 {
   transition: 0.2s;
 }
 
+.btn:hover {
+  background: rgba(0, 255, 157, 0.08);
+  border-color: var(--green);
+  color: white;
+}
