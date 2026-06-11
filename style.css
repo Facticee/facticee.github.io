@@ -2,9 +2,9 @@
   --bg: #0a0e14;
   --card: #111827;
   --border: rgba(255, 255, 255, 0.08);
-  --green: #00ff9d;
+  --grün: #00ff9d;
   --text: #e5e7eb;
-  --gray: #9ca3af;
+  --grau: #9ca3af;
 }
 
 * {
@@ -29,7 +29,6 @@ body {
 }
 
 /* HEADER */
-
 header {
   display: flex;
   justify-content: space-between;
@@ -45,7 +44,6 @@ h1 {
 }
 
 /* UHR */
-
 .uhr {
   color: var(--green);
   font-size: 18px;
@@ -54,16 +52,14 @@ h1 {
   border-radius: 6px;
 }
 
-/* ka */
-
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
 }
 
-/* KARTENBOX */
-
+/* CARD */
 .card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -78,8 +74,7 @@ h1 {
   box-shadow: 0 6px 18px rgba(0, 255, 157, 0.08);
 }
 
-/* HEADER */
-
+/* CARD HEADER */
 .card-header {
   display: flex;
   justify-content: space-between;
@@ -90,18 +85,16 @@ h1 {
   font-size: 1rem;
 }
 
-/* GRÜNERPUNKT */
-
+/* STATUS DOT */
 .status-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--green);
-  box-shadow: 0 0 6px var(--green);
+  background: var(--gray);
+  box-shadow: 0 0 6px var(--gray);
 }
 
 /* TEXT */
-
 .card p {
   color: var(--gray);
   font-size: 0.85rem;
@@ -109,8 +102,7 @@ h1 {
   line-height: 1.4;
 }
 
-
-
+/* weiter leiten button */
 .card-links {
   display: flex;
   gap: 8px;
