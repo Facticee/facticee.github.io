@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Server Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>Dashboard</h1>
+      <div class="uhr" id="live-uhr">00:00:00</div>
+    </header>
+
+    <main class="grid">
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Portainer</h2>
+          <div class="status-dot"></div>
+        </div>
+        <p>portainer</p>
+        <div class="card-links">
+          <a href="#" class="btn">Open App</a>
+          <a href="#" class="btn">Logs</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Nextcloud</h2>
+          <div class="status-dot"></div>
+        </div>
+        <p>Cloud Storage</p>
+        <div class="card-links">
+          <a href="#" class="btn">Open App</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Nginx Proxy</h2>
+          <div class="status-dot"></div>
+        </div>
+        <p>Reverse Proxy Manager</p>
+        <div class="card-links">
+          <a href="#" class="btn">Open App</a>
+          <a href="#" class="btn">Config</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Pi-hole</h2>
+          <div class="status-dot"></div>
+        </div>
+        <p>DNS-Server</p>
+        <div class="card-links">
+          <a href="#" class="btn">Admin Panel</a>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+
+      document.getElementById('live-uhr').textContent = `${h}:${m}:${s}`;
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+
+</body>
+</html>
