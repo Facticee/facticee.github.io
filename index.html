@@ -20,11 +20,11 @@
       <div class="card">
         <div class="card-header">
           <h2>Portainer</h2>
-          <div class="status-dot"></div>
+          <div class="status-dot" data-url="http://localhost:9000"></div>
         </div>
         <p>portainer</p>
         <div class="card-links">
-          <a href="#" class="btn">Open Docker</a>
+          <a href="#" class="btn">Open App</a>
           <a href="#" class="btn">Logs</a>
         </div>
       </div>
@@ -32,22 +32,22 @@
       <div class="card">
         <div class="card-header">
           <h2>Nextcloud</h2>
-          <div class="status-dot"></div>
+          <div class="status-dot" data-url="http://localhost:8080"></div>
         </div>
         <p>Cloud Storage</p>
         <div class="card-links">
-          <a href="#" class="btn">Open Docker</a>
+          <a href="#" class="btn">Open App</a>
         </div>
       </div>
 
       <div class="card">
         <div class="card-header">
           <h2>Nginx Proxy</h2>
-          <div class="status-dot"></div>
+          <div class="status-dot" data-url="http://localhost:81"></div>
         </div>
         <p>Reverse Proxy Manager</p>
         <div class="card-links">
-          <a href="#" class="btn">Open Docker</a>
+          <a href="#" class="btn">Open App</a>
           <a href="#" class="btn">Config</a>
         </div>
       </div>
@@ -55,11 +55,11 @@
       <div class="card">
         <div class="card-header">
           <h2>Pi-hole</h2>
-          <div class="status-dot"></div>
+          <div class="status-dot" data-url="http://localhost/admin"></div>
         </div>
         <p>DNS-Server</p>
         <div class="card-links">
-          <a href="#" class="btn">Pi-Hole panel</a>
+          <a href="#" class="btn">Admin Panel</a>
         </div>
       </div>
 
@@ -67,6 +67,7 @@
   </div>
 
   <script>
+    // Uhr
     function updateClock() {
       const now = new Date();
       const h = String(now.getHours()).padStart(2, '0');
@@ -78,6 +79,31 @@
 
     updateClock();
     setInterval(updateClock, 1000);
+
+    
+    async function checkStatus(dot) {
+      const url = dot.dataset.url;
+
+      try {
+        await fetch(url, { mode: "no-cors" });
+
+        //  grün
+        dot.style.background = "#00ff9d";
+        dot.style.boxShadow = "0 0 6px #00ff9d";
+
+      } catch (e) {
+        //rot nicht erreichbar 
+        dot.style.background = "red";
+        dot.style.boxShadow = "0 0 6px red";
+      }
+    }
+
+    function checkAll() {
+      document.querySelectorAll(".status-dot").forEach(checkStatus);
+    }
+
+    checkAll();
+    setInterval(checkAll, 10000);
   </script>
 
 </body>
