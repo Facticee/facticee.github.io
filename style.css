@@ -45,7 +45,7 @@ h1 {
 
 /* UHR */
 .uhr {
-  color: var(--green);
+  color: var(--grün);
   font-size: 18px;
   padding: 5px 12px;
   border: 1px solid var(--border);
@@ -70,7 +70,7 @@ h1 {
 
 .card:hover {
   transform: translateY(-2px);
-  border-color: var(--green);
+  border-color: var(--grün);
   box-shadow: 0 6px 18px rgba(0, 255, 157, 0.08);
 }
 
@@ -90,13 +90,13 @@ h1 {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--gray);
-  box-shadow: 0 0 6px var(--gray);
+  background: var(--grai);
+  box-shadow: 0 0 6px var(--grau);
 }
 
 /* TEXT */
 .card p {
-  color: var(--gray);
+  color: var(--grau);
   font-size: 0.85rem;
   margin-bottom: 14px;
   line-height: 1.4;
@@ -120,6 +120,6 @@ h1 {
 
 .btn:hover {
   background: rgba(0, 255, 157, 0.08);
-  border-color: var(--green);
+  border-color: var(--grün);
   color: white;
 }
