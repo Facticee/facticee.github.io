@@ -29,8 +29,3 @@ Important ‼️
 If you test the dashboard directly on facticee.github.io, the service cards will not redirect you to your Docker services. This is intentional.
 
 The dashboard is only a template and cannot know the IP addresses, domains, or ports of your personal Home Server.
-
-
-⸻
-
-Created as a lightweight dashboard template for Home Server and Docker enthusiasts.
