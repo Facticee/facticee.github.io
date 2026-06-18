@@ -2,9 +2,9 @@
   --bg: #0a0e14;
   --card: #111827;
   --border: rgba(255, 255, 255, 0.08);
-  --green: #00ff9d;
+  --grün: #00ff9d;
   --text: #e5e7eb;
-  --gray: #9ca3af;
+  --grau: #9ca3af;
 }
 
 * {
@@ -29,7 +29,6 @@ body {
 }
 
 /* HEADER */
-
 header {
   display: flex;
   justify-content: space-between;
@@ -40,14 +39,31 @@ header {
 }
 
 h1 {
-  font-size: 1.2rem;
+  font-size: 19.2px;
   color: #7dd3fc;
 }
 
-/* UHR */
+/* knopf für services */
 
+.add-btn {
+  justify-self: center;
+  background: rgba(0, 255, 157, 0.08);
+  border: 1px solid var(--grün);
+  color: var(--grün);
+  font-family: monospace;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.add-btn:hover {
+  background: rgba(0, 255, 157, 0.18);
+}
+
+/* UHR */
 .uhr {
-  color: var(--green);
+  color: var(--grün);
   font-size: 18px;
   padding: 5px 12px;
   border: 1px solid var(--border);
@@ -55,7 +71,6 @@ h1 {
 }
 
 /* GRID */
-
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -63,7 +78,6 @@ h1 {
 }
 
 /* CARD */
-
 .card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -74,12 +88,11 @@ h1 {
 
 .card:hover {
   transform: translateY(-2px);
-  border-color: var(--green);
+  border-color: var(--grün);
   box-shadow: 0 6px 18px rgba(0, 255, 157, 0.08);
 }
 
 /* CARD HEADER */
-
 .card-header {
   display: flex;
   justify-content: space-between;
@@ -87,37 +100,34 @@ h1 {
 }
 
 .card h2 {
-  font-size: 1rem;
+  font-size: 16px;
 }
 
-/* STATUS */
-
+/* STATUS DOT */
 .status-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--green);
-  box-shadow: 0 0 6px var(--green);
+  background: var(--grau);
+  box-shadow: 0 0 6px var(--grau);
 }
 
 /* TEXT */
-
 .card p {
-  color: var(--gray);
-  font-size: 0.85rem;
+  color: var(--grau);
+  font-size: 13.6px;
   margin-bottom: 14px;
   line-height: 1.4;
 }
 
-/* BUTTONS */
-
+/* weiter leiten button */
 .card-links {
   display: flex;
   gap: 8px;
 }
 
 .btn {
-  font-size: 0.8rem;
+  font-size: 12.8px;
   padding: 5px 10px;
   border: 1px solid var(--border);
   border-radius: 5px;
@@ -128,6 +138,6 @@ h1 {
 
 .btn:hover {
   background: rgba(0, 255, 157, 0.08);
-  border-color: var(--green);
+  border-color: var(--grün);
   color: white;
 }
