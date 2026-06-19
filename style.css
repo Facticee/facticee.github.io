@@ -28,7 +28,8 @@ body {
   max-width: 1100px;
 }
 
-/* HEADER */
+/* Header */
+
 header {
   display: flex;
   justify-content: space-between;
@@ -51,7 +52,7 @@ h1 {
   border: 1px solid var(--grün);
   color: var(--grün);
   font-family: monospace;
-  font-size: 0.85rem;
+  font-size: 13.6px;
   padding: 6px 14px;
   border-radius: 6px;
   cursor: pointer;
@@ -61,7 +62,7 @@ h1 {
   background: rgba(0, 255, 157, 0.18);
 }
 
-/* UHR */
+/* Uhr */
 .uhr {
   color: var(--grün);
   font-size: 18px;
@@ -70,14 +71,14 @@ h1 {
   border-radius: 6px;
 }
 
-/* GRID */
+/* grid  */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
 }
 
-/* CARD */
+/* Karten */
 .card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -92,7 +93,7 @@ h1 {
   box-shadow: 0 6px 18px rgba(0, 255, 157, 0.08);
 }
 
-/* CARD HEADER */
+
 .card-header {
   display: flex;
   justify-content: space-between;
@@ -103,7 +104,34 @@ h1 {
   font-size: 16px;
 }
 
-/* STATUS DOT */
+
+
+.card-delete {
+  position: absolute;
+  bottom: 14px;
+  right: 19.5px;
+  font-size: 14.4px;
+  color: var(--grau);
+  opacity: 0.7;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s;
+}
+.card-delete:hover {
+  opacity: 1;
+  color: red;
+}
+
+
+
+
+
+
+
+
+
+
+/* Status punkt */
 .status-dot {
   width: 8px;
   height: 8px;
@@ -112,7 +140,7 @@ h1 {
   box-shadow: 0 0 6px var(--grau);
 }
 
-/* TEXT */
+
 .card p {
   color: var(--grau);
   font-size: 13.6px;
@@ -175,7 +203,7 @@ h1 {
 
 .popup label {
   display: block;
-  font-size: 0.8rem;
+  font-size: 12.8px;
   color: var(--grau);
   margin-bottom: 12px;
 }
@@ -197,7 +225,7 @@ h1 {
   padding: 8px 10px;
   color: var(--text);
   font-family: monospace;
-  font-size: 0.85rem;
+  font-size: 13.6px;
 }
 
 .popup input:focus {
@@ -214,7 +242,7 @@ h1 {
 
 
 .cancel-button {
-  font-size: 0.8rem;
+  font-size: 12.8px;
   padding: 5px 10px;
   border: 1px solid var(--border);
   border-radius: 5px;
@@ -226,7 +254,7 @@ h1 {
 }
 
 .save-button {
-  font-size: 0.8rem;
+  font-size: 13.6px;
   padding: 5px 10px;
   border: 1px solid var(--border);
   border-radius: 5px;

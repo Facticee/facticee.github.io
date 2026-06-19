@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Server Dashboard</title>
+  <title>Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,64 +11,14 @@
   <div class="container">
 
     <header>
-
       <h1>Dashboard</h1>
       <button id="add-service-btn" class="add-services-btn">+ Add Service</button>
       <div class="uhr" id="live-uhr">00:00:00</div>
-
-
     </header>
 
-    <main class="grid">
+    <main class="grid" id="grid"></main>
 
-      <div class="card">
-        <div class="card-header">
-          <h2>Portainer</h2>
-          <div class="status-dot" data-url="http://localhost:9000"></div>
-        </div>
-        <p>portainer</p>
-        <div class="card-links">
-          <a href="#" class="btn">Open App</a>
-          <a href="#" class="btn">Logs</a>
-        </div>
-      </div>
 
-      <div class="card">
-        <div class="card-header">
-          <h2>Nextcloud</h2>
-          <div class="status-dot" data-url="http://localhost:8080"></div>
-        </div>
-        <p>Cloud Storage</p>
-        <div class="card-links">
-          <a href="#" class="btn">Open App</a>
-        </div>
-
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <h2>Nginx Proxy</h2>
-          <div class="status-dot" data-url="http://localhost:81"></div>
-        </div>
-        <p>Reverse Proxy Manager</p>
-        <div class="card-links">
-          <a href="#" class="btn">Open App</a>
-          <a href="#" class="btn">Config</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <h2>Pi-hole</h2>
-          <div class="status-dot" data-url="http://localhost/admin"></div>
-        </div>
-        <p>DNS-Server</p>
-        <div class="card-links">
-          <a href="#" class="btn">Admin Panel</a>
-        </div>
-      </div>
-
-    </main>
   </div>
 
 
@@ -76,15 +26,15 @@
 
   <div class="overlay hidden" id="overlay">
     <div class="popup">
-      <h3>Service hinzufügen</h3>
+      <h3>Add Service</h3>
       <label>
         Name
         <input type="text" id="input-name">
       </label>
 
       <label>
-        URL
-        <input type="text" id="input-url" placeholder="eg http://localhost:9000">
+        URL (use http:// or https://)
+        <input type="text" id="input-url" placeholder="http://localhost:9000">
       </label>
 
       <label>
@@ -93,8 +43,8 @@
       </label>
 
       <div class="popup-buttons">
-      <button id="popup-cancel" class="cancel-button">Abbrechen</button>
-      <button id="popup-save" class="save-button">Speichern</button>
+      <button id="popup-cancel" class="cancel-button">Cancel</button>
+      <button id="popup-save" class="save-button">Save</button>
     </div>
     </div>
   </div>
@@ -106,6 +56,9 @@
 
 
   <script>
+
+
+
     // Uhr
     function updateClock() {
       const now = new Date();
@@ -120,6 +73,11 @@
     setInterval(updateClock, 1000);
 
 
+
+
+
+
+    // Status Anzeigen Indicator
     async function checkStatus(dot) {
       const url = dot.dataset.url;
 
@@ -136,6 +94,77 @@
         dot.style.boxShadow = "0 0 6px red";
       }
     }
+
+    // damit der nach 10sek immer weiter checkt
+
+    function checkAll() {
+      document.querySelectorAll(".status-dot").forEach(checkStatus);
+    }
+
+    checkAll();
+    setInterval(checkAll, 10000);
+
+
+
+
+
+
+
+    // Karten per add service knopf hinzufügen
+
+    const STORAGE_KEY = 'dashboard-services';
+    const grid = document.getElementById('grid');
+
+    let services = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [
+      { id: 'portainer', name: 'Portainer', url: 'http://localhost:9000', desc: 'portainer' },
+      { id: 'nextcloud', name: 'Nextcloud', url: 'http://localhost:8080', desc: 'Cloud Storage' }
+    ];
+
+    // Schutz gegen XSS danke gemini
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    // speichern
+    function renderServices() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(services)); // sichert den aktuellen Stand
+      if (!grid) return;
+
+
+      grid.innerHTML = services.map(s => `
+
+
+    <div class="card" data-id="${s.id}">
+      <div class="card-header">
+        <h2>${escapeHtml(s.name)}</h2>
+        <div class="status-dot" data-url="${escapeHtml(s.url)}"></div>
+      </div>
+      <p>${escapeHtml(s.desc || '')}</p>
+      <div class="card-links">
+        <a href="${escapeHtml(s.url)}" target="_blank" class="btn">Open App</a>
+      </div>
+      <div class="card-delete" title="Double click to delete">×</div>
+    </div>
+
+
+  `).join('');
+
+      if (typeof checkAll === 'function') checkAll();
+    }
+
+    // delete funktion
+    grid.addEventListener('dblclick', e => {
+      if (e.target.classList.contains('card-delete')) {
+        const id = e.target.closest('.card').dataset.id;
+        services = services.filter(s => s.id !== id);
+        renderServices(); // neu speichern und nue anzeigen
+      }
+    });
+
+    renderServices();
+
 
 
 
@@ -171,12 +200,22 @@
       const url = inputUrl.value.trim();
       const description = inputDescription.value.trim();
 
-      if (!name || !url) {
-        alert('Name and URL must be set');
-        return;
+      if (!name || !url) return alert('Name and URL must be set');
+
+      // damit man nicht " javascript: " ins feld eingeben kann
+      if (!url.toLowerCase().startsWith('http://') && !url.toLowerCase().startsWith('https://')) {
+        return alert('The URL must start with http:// or https:// ');
       }
 
-      console.log('Gespeichert:', { name, url, description });
+
+      services.push({
+        id: 'service-' + Date.now(),
+        name: name,
+        url: url,
+        desc: description
+      });
+
+      renderServices();
       closeOverlay();
     }
 
@@ -190,27 +229,21 @@
       if (e.target === overlay) closeOverlay();
     });
 
-    // Enter macht save
+    // Enter saved
+    inputName.addEventListener('keydown', e => {
+      if (e.key === 'Enter') saveData();
+    });
+
+    inputUrl.addEventListener('keydown', e => {
+      if (e.key === 'Enter') saveData();
+    });
+
     inputDescription.addEventListener('keydown', e => {
       if (e.key === 'Enter') saveData();
     });
 
 
 
-
-
-
-
-
-
-
-
-    function checkAll() {
-      document.querySelectorAll(".status-dot").forEach(checkStatus);
-    }
-
-    checkAll();
-    setInterval(checkAll, 10000);
   </script>
 
 </body>
