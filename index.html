@@ -13,7 +13,7 @@
     <header>
 
       <h1>Dashboard</h1>
-      <button id="add-service-btn" class="add-btn">+ Add Service</button>
+      <button id="add-service-btn" class="add-services-btn">+ Add Service</button>
       <div class="uhr" id="live-uhr">00:00:00</div>
 
 
@@ -42,6 +42,7 @@
         <div class="card-links">
           <a href="#" class="btn">Open App</a>
         </div>
+
       </div>
 
       <div class="card">
@@ -69,6 +70,40 @@
 
     </main>
   </div>
+
+
+
+
+  <div class="overlay hidden" id="overlay">
+    <div class="popup">
+      <h3>Service hinzufügen</h3>
+      <label>
+        Name
+        <input type="text" id="input-name">
+      </label>
+
+      <label>
+        URL
+        <input type="text" id="input-url" placeholder="eg http://localhost:9000">
+      </label>
+
+      <label>
+        Description (optional)
+        <input type="text" id="input-description">
+      </label>
+
+      <div class="popup-buttons">
+      <button id="popup-cancel" class="cancel-button">Abbrechen</button>
+      <button id="popup-save" class="save-button">Speichern</button>
+    </div>
+    </div>
+  </div>
+
+
+
+
+
+
 
   <script>
     // Uhr
@@ -101,6 +136,74 @@
         dot.style.boxShadow = "0 0 6px red";
       }
     }
+
+
+
+
+
+
+
+    // overlay pop up
+    const overlay = document.getElementById('overlay');
+    const inputName = document.getElementById('input-name');
+    const inputUrl = document.getElementById('input-url');
+    const inputDescription = document.getElementById('input-description');
+
+    const saveBtn = document.getElementById('popup-save');
+    const cancelBtn = document.getElementById('popup-cancel');
+    const addBtn = document.getElementById('add-service-btn');
+
+    function openOverlay() {
+      overlay.classList.remove('hidden');
+      inputName.focus();
+    }
+
+    function closeOverlay() {
+      overlay.classList.add('hidden');
+
+      inputName.value = '';
+      inputUrl.value = '';
+      inputDescription.value = '';
+    }
+
+    function saveData() {
+      const name = inputName.value.trim();
+      const url = inputUrl.value.trim();
+      const description = inputDescription.value.trim();
+
+      if (!name || !url) {
+        alert('Name and URL must be set');
+        return;
+      }
+
+      console.log('Gespeichert:', { name, url, description });
+      closeOverlay();
+    }
+
+    // Events
+    addBtn.addEventListener('click', openOverlay);
+    cancelBtn.addEventListener('click', closeOverlay);
+    saveBtn.addEventListener('click', saveData);
+
+    // wenn auf overlay klick dann schließen (nicht auf popup)
+    overlay.addEventListener('click', e => {
+      if (e.target === overlay) closeOverlay();
+    });
+
+    // Enter macht save
+    inputDescription.addEventListener('keydown', e => {
+      if (e.key === 'Enter') saveData();
+    });
+
+
+
+
+
+
+
+
+
+
 
     function checkAll() {
       document.querySelectorAll(".status-dot").forEach(checkStatus);

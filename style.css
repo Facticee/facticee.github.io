@@ -45,7 +45,7 @@ h1 {
 
 /* knopf für services */
 
-.add-btn {
+.add-services-btn {
   justify-self: center;
   background: rgba(0, 255, 157, 0.08);
   border: 1px solid var(--grün);
@@ -57,7 +57,7 @@ h1 {
   cursor: pointer;
   transition: 0.2s;
 }
-.add-btn:hover {
+.add-services-btn:hover {
   background: rgba(0, 255, 157, 0.18);
 }
 
@@ -141,3 +141,115 @@ h1 {
   border-color: var(--grün);
   color: white;
 }
+
+
+
+
+
+
+/* overlay */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.popup {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  width: 100%;
+  max-width: 360px;
+}
+
+
+.popup label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--grau);
+  margin-bottom: 12px;
+}
+
+
+.popup h3 {
+  margin-bottom: 16px;
+  font-size: 16px;
+  color: #7dd3fc;
+}
+
+.popup input {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 8px 10px;
+  color: var(--text);
+  font-family: monospace;
+  font-size: 0.85rem;
+}
+
+.popup input:focus {
+  outline: none;
+  border-color: var(--grün);
+}
+
+
+.popup-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+
+.cancel-button {
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  text-decoration: none;
+  color: #7dd3fc;
+  transition: 0.2s;
+  background: none;
+  cursor: pointer;
+}
+
+.save-button {
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.2s;
+  background: none;
+  cursor: pointer;
+  border-color: var(--grün);
+  color: var(--grün);
+}
+
+
+.save-button:hover {
+  background: rgba(0, 255, 157, 0.08);
+  border-color: var(--grün);
+  color: white;
+}
+
+.cancel-button:hover {
+  background: rgba(0, 255, 157, 0.08);
+  border-color: var(--grün);
+  color: white;
+}
+
+
+
