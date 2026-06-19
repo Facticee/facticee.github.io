@@ -24,4 +24,4 @@ You can fully use and test this dashboard directly online via **facticee.github.
 
 * 🔴 **Status Indicators:** If you add a local service (like `localhost:9000` or a local IP with a port), the status dot will show up as offline (red). This happens because the public website running on GitHub **cannot** access your private home network. (The button to redirect you to the local website will still work.. just te status indicator not). If the website is public (like https://github.com) the Status Indicator should alway work
   
-* **Full Local Access:** If you want the status dots to turn green and work automatically, simply download the HTML/CSS files and host the dashboard locally on your own home server (e.g., via Nginx). **Like i have already explained in "Stepup"!**
+* **Full Local Access:** If you want the full experience even with your own hosts, simply download the HTML/CSS files and host the dashboard locally on your own homeserver (e.g. via Nginx). **Like i have already explained in "Stepup"**
