@@ -28,7 +28,8 @@ body {
   max-width: 1100px;
 }
 
-/* HEADER */
+/* Header */
+
 header {
   display: flex;
   justify-content: space-between;
@@ -39,11 +40,29 @@ header {
 }
 
 h1 {
-  font-size: 1.2rem;
+  font-size: 19.2px;
   color: #7dd3fc;
 }
 
-/* UHR */
+/* knopf für services */
+
+.add-services-btn {
+  justify-self: center;
+  background: rgba(0, 255, 157, 0.08);
+  border: 1px solid var(--grün);
+  color: var(--grün);
+  font-family: monospace;
+  font-size: 13.6px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.add-services-btn:hover {
+  background: rgba(0, 255, 157, 0.18);
+}
+
+/* Uhr */
 .uhr {
   color: var(--grün);
   font-size: 18px;
@@ -52,14 +71,14 @@ h1 {
   border-radius: 6px;
 }
 
-/* GRID */
+/* grid  */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
 }
 
-/* CARD */
+/* Karten */
 .card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -74,7 +93,7 @@ h1 {
   box-shadow: 0 6px 18px rgba(0, 255, 157, 0.08);
 }
 
-/* CARD HEADER */
+
 .card-header {
   display: flex;
   justify-content: space-between;
@@ -82,22 +101,49 @@ h1 {
 }
 
 .card h2 {
-  font-size: 1rem;
+  font-size: 16px;
 }
 
-/* STATUS DOT */
+
+
+.card-delete {
+  position: absolute;
+  bottom: 14px;
+  right: 19.5px;
+  font-size: 14.4px;
+  color: var(--grau);
+  opacity: 0.7;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s;
+}
+.card-delete:hover {
+  opacity: 1;
+  color: red;
+}
+
+
+
+
+
+
+
+
+
+
+/* Status punkt */
 .status-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--grai);
+  background: var(--grau);
   box-shadow: 0 0 6px var(--grau);
 }
 
-/* TEXT */
+
 .card p {
   color: var(--grau);
-  font-size: 0.85rem;
+  font-size: 13.6px;
   margin-bottom: 14px;
   line-height: 1.4;
 }
@@ -109,7 +155,7 @@ h1 {
 }
 
 .btn {
-  font-size: 0.8rem;
+  font-size: 12.8px;
   padding: 5px 10px;
   border: 1px solid var(--border);
   border-radius: 5px;
@@ -119,6 +165,115 @@ h1 {
 }
 
 .btn:hover {
+  background: rgba(0, 255, 157, 0.08);
+  border-color: var(--grün);
+  color: white;
+}
+
+
+
+
+
+
+/* overlay */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.popup {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  width: 100%;
+  max-width: 360px;
+}
+
+
+.popup label {
+  display: block;
+  font-size: 12.8px;
+  color: var(--grau);
+  margin-bottom: 12px;
+}
+
+
+.popup h3 {
+  margin-bottom: 16px;
+  font-size: 16px;
+  color: #7dd3fc;
+}
+
+.popup input {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 8px 10px;
+  color: var(--text);
+  font-family: monospace;
+  font-size: 13.6px;
+}
+
+.popup input:focus {
+  outline: none;
+  border-color: var(--grün);
+}
+
+
+.popup-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+
+.cancel-button {
+  font-size: 12.8px;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  text-decoration: none;
+  color: #7dd3fc;
+  transition: 0.2s;
+  background: none;
+  cursor: pointer;
+}
+
+.save-button {
+  font-size: 13.6px;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.2s;
+  background: none;
+  cursor: pointer;
+  border-color: var(--grün);
+  color: var(--grün);
+}
+
+
+.save-button:hover {
+  background: rgba(0, 255, 157, 0.08);
+  border-color: var(--grün);
+  color: white;
+}
+
+.cancel-button:hover {
   background: rgba(0, 255, 157, 0.08);
   border-color: var(--grün);
   color: white;
